@@ -7,7 +7,7 @@
        
         Height="400"
         x:Class="RegE.Views.HelpWindow"
-        Title="AvaloniaAppTemplate">
+        Title="Help">
     <Window.Styles>
         <Style Selector="TextBlock.green">
             <Setter Property="Foreground" Value="Green" />

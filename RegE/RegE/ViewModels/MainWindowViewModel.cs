@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using System;
 using System.Text.RegularExpressions;
 using ReactiveUI;
 using RegE.Views;
@@ -20,7 +19,7 @@ namespace RegE.ViewModels
             set
             {
                 this.RaiseAndSetIfChanged(ref _inputText, value); 
-                if(_isChecked && !string.IsNullOrEmpty(_regText)) SetRowResutl();
+                if(_isChecked && !string.IsNullOrEmpty(_regText)) SetRowResult();
                 else if(!string.IsNullOrEmpty(_regText)) SetNoRowResult();
             }
         }
@@ -31,7 +30,7 @@ namespace RegE.ViewModels
             set
             {
                 this.RaiseAndSetIfChanged(ref _regText, value);
-                if(_isChecked) SetRowResutl();
+                if(_isChecked) SetRowResult();
                 else SetNoRowResult();
             }
         }
@@ -50,8 +49,7 @@ namespace RegE.ViewModels
 
         public void ShowHelp()
         {
-            var hw = new HelpWindow();
-            hw.Show();
+            new HelpWindow().Show();
         }
 
         private void SetNoRowResult()
@@ -59,11 +57,11 @@ namespace RegE.ViewModels
             OutputText = string.Join(Environment.NewLine,new Regex(_regText).Matches(_inputText));
         }
 
-        private void SetRowResutl()
+        private void SetRowResult()
         {
             var r = new Regex(_regText);
             var s = string.Empty;
-            foreach (var line in _inputText.Split(Environment.NewLine,StringSplitOptions.RemoveEmptyEntries))
+            foreach (var line in _inputText.Split( Environment.NewLine,StringSplitOptions.RemoveEmptyEntries))
             {
                
                 s += $"--{Environment.NewLine}";
