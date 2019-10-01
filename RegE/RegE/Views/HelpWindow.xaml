@@ -1,0 +1,162 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:RegE.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+       
+        Height="400"
+        x:Class="RegE.Views.HelpWindow"
+        Title="AvaloniaAppTemplate">
+    <Window.Styles>
+        <Style Selector="TextBlock.green">
+            <Setter Property="Foreground" Value="Green" />
+        </Style>
+    </Window.Styles>
+    <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" VirtualizationMode="None">
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="A single character of: a, b or c" />
+                <TextBlock Margin="5"  Classes="green" Text="[abc]" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="A character except: a, b or c" />
+                <TextBlock Margin="5"  Classes="green" Text="[^abc]" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="A character in the range: a-z" />
+                <TextBlock Margin="5"  Classes="green" Text="[a-z]" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="A character not in the range: a-z" />
+                <TextBlock Margin="5"  Classes="green" Text="[^a-z]" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="A character in the range: a-z or A-Z" />
+                <TextBlock Margin="5"  Classes="green" Text="[a-zA-Z]" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Any single character" />
+                <TextBlock Margin="5"  Classes="green" Text="." />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Any whitespace character" />
+                <TextBlock Margin="5"  Classes="green" Text="\s" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Any non-whitespace character" />
+                <TextBlock Margin="5"  Classes="green" Text="\S" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Any digit" />
+                <TextBlock Margin="5"  Classes="green" Text="\d" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Any non-digit" />
+                <TextBlock Margin="5"  Classes="green" Text="\D" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Any word character" />
+                <TextBlock Margin="5"  Classes="green" Text="\w" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Any non-word character" />
+                <TextBlock Margin="5"  Classes="green" Text="\W" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Capture everything enclosed" />
+                <TextBlock Margin="5"  Classes="green" Text="(...)" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Match either a or b" />
+                <TextBlock Margin="5"  Classes="green" Text="(a|b)" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Zero or one of a" />
+                <TextBlock Margin="5"  Classes="green" Text="a?" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Zero or more of a" />
+                <TextBlock Margin="5"  Classes="green" Text="a*" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="One or more of a" />
+                <TextBlock Margin="5"  Classes="green" Text="a+" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Exactly 3 of a" />
+                <TextBlock Margin="5"  Classes="green" Text="a{3}" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="3 or more of a" />
+                <TextBlock Margin="5"  Classes="green" Text="a{3,}" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Between 3 and 6 of a" />
+                <TextBlock Margin="5"  Classes="green" Text="a{3,6}" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Start of string" />
+                <TextBlock Margin="5"  Classes="green" Text="^" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="End of string" />
+                <TextBlock Margin="5"  Classes="green" Text="$" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="A word boundary" />
+                <TextBlock Margin="5"  Classes="green" Text="\b" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5"  Text="Non-word boundary" />
+                <TextBlock Margin="5"  Classes="green" Text="\B" />
+            </StackPanel>
+        </ListBoxItem>
+    </ListBox>
+</Window>
